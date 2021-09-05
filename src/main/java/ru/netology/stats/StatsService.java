@@ -11,13 +11,9 @@ public class StatsService {
     }
 
     public long averageSales(long[] sales) {
-        long summa = 0; // общая сумма продаж
-        long month = 0; // месяц
-        for (long sale : sales) { // sale число из каждой ячейки массива sales
-            summa = summa + sale; // каждая сумма из предыдущей ячейки и следующей
-            month = month + 1; // в конце количество месяцев
-        }
-        return summa / month; // возвращает среднее за месяц
+        long summa = sumAllSales(sales); // получаем сумму за период
+        int period = sales.length; // получаем период
+        return summa / period; // возвращаем среднее значение за месяц
     }
 
     public int maxSales(long[] sales) {
